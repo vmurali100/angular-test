@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+table.mat-table {
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+.mat-form-field-infix {
+    border-top: none;
+}
+mat-card.mat-card {
+    text-align: center;
+}
+.create {
+    float: right;
+    margin-top: 6px !important;
+}
+.mat-sort-header-container {
+    align-items: center;
+  }
+  .mat-sort-header-stem {
+    background: currentColor;
+    height: 10px;
+    width: 2px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,49 @@
+<div id="editForm" *ngIf="isEdit">
+    <mat-card>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Invoice No" [(ngModel)]="invoice.invoiceNo" name="no">
+            </mat-form-field>
+          
+            <mat-form-field class="example-full-width">
+                <!-- <input matInput [matDatepicker]="picker" placeholder="Date" [ngModel]="invoice.date | dateFormat " (ngModelChange)="invoice.date = $event" name="date" >
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker> -->
+                <input matInput [matDatepicker]="picker" readonly placeholder="Choose a date" [ngModel]="invoice.date  " (ngModelChange)="invoice.date = $event" name="date" >
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Customer" [(ngModel)]="invoice.customer" name="customer">
+            </mat-form-field>
+        
+              <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Qty" [(ngModel)]="invoice.qty" name="qty"></textarea>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Amount" [(ngModel)]="invoice.amount" name="amount"></textarea>
+              </mat-form-field>
+          </form>
+          <mat-card-content>
+            <mat-card-actions *ngIf="!isCreate">
+                <button mat-raised-button color="accent" [mat-dialog-close]="" cdkFocusInitial>Cancel</button>
+                <button mat-raised-button color="primary" (click)="update()" [mat-dialog-close]="">Update</button>
+            </mat-card-actions>
+            <mat-card-actions *ngIf="isCreate">
+                <button mat-raised-button color="accent" [mat-dialog-close]="" (click)="create()">Create</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+</div>
+  <div id="isDelete" *ngIf="!isEdit">
+    <mat-card>
+        <mat-card-title>Do You Want to Delete the Current Inovice ? </mat-card-title>
+        <mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="accent" [mat-dialog-close]="" cdkFocusInitial>Cancel</button>
+                <button mat-raised-button color="warn" (click)="delete()" [mat-dialog-close]="">Delete</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+
+  </div>
